@@ -2,11 +2,8 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import BacTimeToZeroCalculator from '@/components/BacTimeToZeroCalculator';
 import MarkdownContent from '@/components/MarkdownContent';
-import FAQ from '@/components/FAQ';
 import { Locale, defaultLocale, locales } from '@/lib/i18n';
-import { getLanguageAlternates, getOrganizationSchema } from '@/lib/seo';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
@@ -17,9 +14,9 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = (locales.includes(params.locale as Locale) ? params.locale : defaultLocale) as Locale;
   const metadata = await getTranslations({ locale, namespace: 'metadata' });
-  const t = await getTranslations({ locale, namespace: 'timeToZero' });
+  const t = await getTranslations({ locale, namespace: 'contact' });
   const localePrefix = locale === defaultLocale ? '' : `/${locale}`;
-  const localizedUrl = `${SITE_URL}${localePrefix}/bac-time-to-zero-calculator`;
+  const localizedUrl = `${SITE_URL}${localePrefix}/contact`;
   const imageUrl = `${SITE_URL}/og-image.svg`;
 
   return {
@@ -27,10 +24,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: t('description'),
     alternates: {
       canonical: localizedUrl,
-      languages: getLanguageAlternates('/bac-time-to-zero-calculator'),
+      languages: {
+        en: `${SITE_URL}/contact`,
+        'x-default': `${SITE_URL}/contact`,
+      },
     },
     openGraph: {
-      type: 'article',
+      type: 'website',
       locale,
       url: localizedUrl,
       title: t('title'),
@@ -58,57 +58,33 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function BacTimeToZeroPage({ params }: PageProps) {
+export default async function ContactPage({ params }: PageProps) {
   const locale = (locales.includes(params.locale as Locale) ? params.locale : defaultLocale) as Locale;
-  const t = await getTranslations({ locale, namespace: 'timeToZero' });
+  const t = await getTranslations({ locale, namespace: 'contact' });
 
-  const docsMarkdown = `
-# ${t('docs.aboutTitle')}
+  const markdown = `
+# ${t('title')}
 
-${t('docs.aboutContent')}
+${t('description')}
 
-## ${t('docs.factorsTitle')}
+## ${t('sections.introTitle')}
 
-${t('docs.factorsContent')}
+${t('sections.introBody')}
 
-## ${t('docs.mythsTitle')}
+**${t('sections.emailLabel')}:** [${t('sections.emailValue')}](mailto:${t('sections.emailValue')})
 
-${t('docs.mythsContent')}
+${t('sections.emailNote')}
 
-## ${t('docs.safetyTitle')}
+## ${t('sections.suggestionsTitle')}
 
-${t('docs.safetyContent')}
+- ${t('sections.suggestionsList1')}
+- ${t('sections.suggestionsList2')}
+- ${t('sections.suggestionsList3')}
+
+## ${t('sections.limitationsTitle')}
+
+${t('sections.limitationsBody')}
 `;
-
-  const webAppSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: t('title'),
-    description: t('description'),
-    url: `${SITE_URL}/bac-time-to-zero-calculator`,
-    applicationCategory: 'HealthApplication',
-    operatingSystem: 'Web',
-  };
-
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    ...getOrganizationSchema(),
-  };
-
-  const faqItems = [
-    {
-      question: t('faq.q1'),
-      answer: t('faq.a1'),
-    },
-    {
-      question: t('faq.q2'),
-      answer: t('faq.a2'),
-    },
-    {
-      question: t('faq.q3'),
-      answer: t('faq.a3'),
-    },
-  ];
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -124,35 +100,13 @@ ${t('docs.safetyContent')}
             </p>
           </div>
 
-          <div id="tool" className="mb-16">
-            <BacTimeToZeroCalculator defaultCountryCode="US" />
-          </div>
-
           <div className="mb-16">
-            <MarkdownContent content={docsMarkdown} />
+            <MarkdownContent content={markdown} />
           </div>
-
-          <div className="mb-16">
-            <FAQ
-              items={faqItems}
-              title={t('faqTitle')}
-              defaultOpenIndex={0}
-              allowMultiple={false}
-              showCategory={false}
-            />
-          </div>
-
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          />
         </div>
       </main>
       <Footer />
     </div>
   );
 }
+

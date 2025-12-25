@@ -6,6 +6,7 @@ import BacCalculator from '@/components/BacCalculator';
 import MarkdownContent from '@/components/MarkdownContent';
 import FAQ from '@/components/FAQ';
 import { Locale, defaultLocale, getLocalizedPath, locales } from '@/lib/i18n';
+import { getLanguageAlternates, getOrganizationSchema } from '@/lib/seo';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
@@ -26,10 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: t('uk.description'),
     alternates: {
       canonical: localizedUrl,
-      languages: {
-        en: `${SITE_URL}/bac-calculator-uk`,
-        'x-default': `${SITE_URL}/bac-calculator-uk`,
-      },
+      languages: getLanguageAlternates('/bac-calculator-uk'),
     },
     openGraph: {
       type: 'article',
@@ -63,30 +61,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BacCalculatorUkPage({ params }: PageProps) {
   const locale = (locales.includes(params.locale as Locale) ? params.locale : defaultLocale) as Locale;
   const t = await getTranslations({ locale, namespace: 'countryBac' });
+  // Used for shared switch links labels only
   const countryName = t('shared.names.uk');
 
   const docsMarkdown = `
-## ${t('shared.legalSectionTitle', { countryName })}
+## ${t('uk.legalSectionTitle')}
 
-${t('shared.faqA1', { countryName })}
+${t('uk.legalSectionBody')}
 
-## ${t('shared.safetySectionTitle', { countryName })}
+## ${t('uk.safetySectionTitle')}
 
-${t('shared.safetySectionBody', { countryName })}
+${t('uk.safetySectionBody')}
 `;
 
   const faqItems = [
     {
-      question: t('shared.faqQ1', { countryName }),
-      answer: t('shared.faqA1', { countryName }),
+      question: t('uk.faq.q1'),
+      answer: t('uk.faq.a1'),
     },
     {
-      question: t('shared.faqQ2', { countryName }),
-      answer: t('shared.faqA2', { countryName }),
+      question: t('uk.faq.q2'),
+      answer: t('uk.faq.a2'),
     },
     {
-      question: t('shared.faqQ3', { countryName }),
-      answer: t('shared.faqA3', { countryName }),
+      question: t('uk.faq.q3'),
+      answer: t('uk.faq.a3'),
     },
   ];
 
@@ -122,7 +121,7 @@ ${t('shared.safetySectionBody', { countryName })}
           <div className="mb-16">
             <FAQ
               items={faqItems}
-              title={t('shared.faqTitle', { countryName })}
+              title={t('uk.faqTitle')}
               defaultOpenIndex={0}
               allowMultiple={false}
               showCategory={false}
@@ -133,6 +132,14 @@ ${t('shared.safetySectionBody', { countryName })}
             <p className="mb-2 font-semibold">{t('shared.switchTitle')}</p>
             <p className="mb-3 text-xs text-gray-600">{t('shared.switchIntro')}</p>
             <ul className="flex flex-wrap gap-3 text-sm">
+              <li>
+                <a
+                  href={getLocalizedPath(locale, '/bac-chart')}
+                  className="font-medium text-slate-700 hover:text-sky-700 hover:underline"
+                >
+                  View BAC Chart
+                </a>
+              </li>
               {switchLinks.map((link) => (
                 <li key={link.href}>
                   <a
@@ -145,6 +152,14 @@ ${t('shared.safetySectionBody', { countryName })}
               ))}
             </ul>
           </div>
+          
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              ...getOrganizationSchema(),
+            }) }}
+          />
         </div>
       </main>
       <Footer />

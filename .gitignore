@@ -1,3 +1,6 @@
 next-env.d.ts
 .next/
 node_modules
+lighthouse*.json
+safebac.org-Performance-*/*
+semrush/*

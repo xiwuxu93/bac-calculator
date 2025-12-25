@@ -18,6 +18,24 @@ interface MarkdownContentProps {
   tocTitle?: string;
 }
 
+function extractHeadings(content: string): HeadingItem[] {
+  const headingRegex = /^(#{1,6})\s+(.+)$/gm;
+  const extractedHeadings: HeadingItem[] = [];
+  let match;
+
+  while ((match = headingRegex.exec(content)) !== null) {
+    const level = match[1].length;
+    const text = match[2].trim();
+    const id = text
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+
+    extractedHeadings.push({ id, text, level });
+  }
+  return extractedHeadings;
+}
+
 /**
  * MarkdownContent - A comprehensive Markdown component with Table of Contents
  *
@@ -43,28 +61,8 @@ export default function MarkdownContent({
   showTOC = true,
   tocTitle = "Table of Contents",
 }: MarkdownContentProps) {
-  const [headings, setHeadings] = useState<HeadingItem[]>([]);
+  const headings = extractHeadings(content);
   const [activeId, setActiveId] = useState<string>("");
-
-  // Extract headings from markdown content
-  useEffect(() => {
-    const headingRegex = /^(#{1,6})\s+(.+)$/gm;
-    const extractedHeadings: HeadingItem[] = [];
-    let match;
-
-    while ((match = headingRegex.exec(content)) !== null) {
-      const level = match[1].length;
-      const text = match[2].trim();
-      const id = text
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "");
-
-      extractedHeadings.push({ id, text, level });
-    }
-
-    setHeadings(extractedHeadings);
-  }, [content]);
 
   // Track active section on scroll
   useEffect(() => {

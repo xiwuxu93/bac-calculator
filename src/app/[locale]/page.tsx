@@ -7,6 +7,7 @@ import MarkdownContent from '@/components/MarkdownContent';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import { Locale, defaultLocale, getLocalizedPath, locales } from '@/lib/i18n';
+import { getLanguageAlternates, getOrganizationSchema } from '@/lib/seo';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
@@ -38,10 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     alternates: {
       canonical: localizedUrl,
-      languages: {
-        en: SITE_URL,
-        'x-default': SITE_URL,
-      },
+      languages: getLanguageAlternates('/'),
     },
     openGraph: {
       type: 'website',
@@ -86,6 +84,11 @@ export default async function HomePage({ params }: PageProps) {
     inLanguage: locale,
     applicationCategory: 'WebApplication',
     operatingSystem: 'Web',
+  };
+
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    ...getOrganizationSchema(),
   };
 
   // Example markdown content for documentation
@@ -152,6 +155,18 @@ ${home('safetyContent')}
     {
       href: '/bac-time-to-zero-calculator',
       label: home('relatedTimeToZero'),
+    },
+    {
+      href: '/bac-chart',
+      label: home('relatedChart'),
+    },
+    {
+      href: '/advanced-bac-calculator',
+      label: home('relatedAdvanced'),
+    },
+    {
+      href: '/bac-calculator-for-women',
+      label: home('relatedWomen'),
     },
     {
       href: '/how-to-calculate-bac',
@@ -231,6 +246,10 @@ ${home('safetyContent')}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
           />
         </div>
       </main>

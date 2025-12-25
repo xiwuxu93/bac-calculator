@@ -16,39 +16,39 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale = (locales.includes(params.locale as Locale) ? params.locale : defaultLocale) as Locale;
+  const t = await getTranslations({ locale, namespace: 'bacForWomen' });
   const metadata = await getTranslations({ locale, namespace: 'metadata' });
-  const t = await getTranslations({ locale, namespace: 'countryBac' });
   const localePrefix = locale === defaultLocale ? '' : `/${locale}`;
-  const localizedUrl = `${SITE_URL}${localePrefix}/bac-calculator-maroc`;
+  const localizedUrl = `${SITE_URL}${localePrefix}/bac-calculator-for-women`;
   const imageUrl = `${SITE_URL}/og-image.svg`;
 
   return {
-    title: `${t('ma.title')} | ${metadata('siteName')}`,
-    description: t('ma.description'),
+    title: `${t('title')} | ${metadata('siteName')}`,
+    description: t('description'),
     alternates: {
       canonical: localizedUrl,
-      languages: getLanguageAlternates('/bac-calculator-maroc'),
+      languages: getLanguageAlternates('/bac-calculator-for-women'),
     },
     openGraph: {
       type: 'article',
       locale,
       url: localizedUrl,
-      title: t('ma.title'),
-      description: t('ma.description'),
+      title: t('title'),
+      description: t('description'),
       siteName: metadata('siteName'),
       images: [
         {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: t('ma.title'),
+          alt: t('title'),
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: t('ma.title'),
-      description: t('ma.description'),
+      title: t('title'),
+      description: t('description'),
       images: [imageUrl],
     },
     robots: {
@@ -58,99 +58,102 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function BacCalculatorMarocPage({ params }: PageProps) {
+export default async function BacCalculatorForWomenPage({ params }: PageProps) {
   const locale = (locales.includes(params.locale as Locale) ? params.locale : defaultLocale) as Locale;
-  const t = await getTranslations({ locale, namespace: 'countryBac' });
+  const t = await getTranslations({ locale, namespace: 'bacForWomen' });
 
-  const docsMarkdown = `
-## ${t('ma.legalSectionTitle')}
+  // Markdown content explaining the biology
+  const biologyMarkdown = `
+## ${t('docs.biologyTitle')}
 
-${t('ma.legalSectionBody')}
+${t('docs.biologyContent')}
 
-## ${t('ma.safetySectionTitle')}
+### ${t('docs.waterTitle')}
 
-${t('ma.safetySectionBody')}
+${t('docs.waterContent')}
+
+### ${t('docs.enzymesTitle')}
+
+${t('docs.enzymesContent')}
+
+### ${t('docs.hormonesTitle')}
+
+${t('docs.hormonesContent')}
 `;
 
   const faqItems = [
     {
-      question: t('ma.faq.q1'),
-      answer: t('ma.faq.a1'),
+      question: t('faq.q1'),
+      answer: t('faq.a1'),
     },
     {
-      question: t('ma.faq.q2'),
-      answer: t('ma.faq.a2'),
+      question: t('faq.q2'),
+      answer: t('faq.a2'),
     },
     {
-      question: t('ma.faq.q3'),
-      answer: t('ma.faq.a3'),
+      question: t('faq.q3'),
+      answer: t('faq.a3'),
     },
   ];
-
-  const switchLinks = [
-    { href: '/bac-calculator-uk', labelKey: 'shared.names.uk' },
-    { href: '/bac-calculator-australia', labelKey: 'shared.names.au' },
-    { href: '/bac-calculator-nz', labelKey: 'shared.names.nz' },
-    { href: '/bac-calculator-dz', labelKey: 'shared.names.dz' },
-  ] as const;
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <Header locale={locale} />
       <main className="flex-1">
         <div className="mx-auto max-w-5xl px-4 py-8 md:py-12">
+          {/* Hero Section */}
           <div className="mb-8 text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              {t('ma.title')}
+              {t('title')}
             </h1>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              {t('ma.heroSubtitle')}
+              {t('heroSubtitle')}
             </p>
           </div>
 
+          {/* Calculator Section - Defaulted to Female */}
           <div id="tool" className="mb-16">
-            <BacCalculator defaultCountryCode="MA" enableLocalStorage />
+            <BacCalculator defaultCountryCode="US" defaultSex="female" enableLocalStorage />
           </div>
 
+          {/* Educational Content */}
           <div className="mb-16">
-            <MarkdownContent content={docsMarkdown} />
+            <MarkdownContent content={biologyMarkdown} />
+            <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-gray-700">
+              <p className="mb-2 font-semibold">Explore more tools:</p>
+              <ul className="flex flex-wrap gap-3 text-sm">
+                <li>
+                  <a
+                    href={getLocalizedPath(locale, '/bac-chart')}
+                    className="text-sky-700 hover:text-sky-900 hover:underline"
+                  >
+                    View BAC Chart
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={getLocalizedPath(locale, '/advanced-bac-calculator')}
+                    className="text-sky-700 hover:text-sky-900 hover:underline"
+                  >
+                    Advanced Calculator
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
+          {/* FAQ Section */}
           <div className="mb-16">
             <FAQ
               items={faqItems}
-              title={t('ma.faqTitle')}
+              title={t('faqTitle')}
               defaultOpenIndex={0}
               allowMultiple={false}
               showCategory={false}
             />
           </div>
 
-          <div className="mb-16 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-gray-700">
-            <p className="mb-2 font-semibold">{t('shared.switchTitle')}</p>
-            <p className="mb-3 text-xs text-gray-600">{t('shared.switchIntro')}</p>
-            <ul className="flex flex-wrap gap-3 text-sm">
-              <li>
-                <a
-                  href={getLocalizedPath(locale, '/bac-chart')}
-                  className="font-medium text-slate-700 hover:text-sky-700 hover:underline"
-                >
-                  View BAC Chart
-                </a>
-              </li>
-              {switchLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={getLocalizedPath(locale, link.href)}
-                    className="text-sky-700 hover:text-sky-900 hover:underline"
-                  >
-                    {t(link.labelKey)}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+          {/* Structured Data */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify({

@@ -34,6 +34,9 @@ const en = {
     navTimeToZero: "Time to Zero",
     navHowTo: "How It Works",
     navAccuracy: "Accuracy",
+    navChart: "BAC Chart",
+    navAdvanced: "Advanced Calc",
+    navWomen: "For Women",
   },
   header: {
     siteName: "SafeBAC Calculator",
@@ -44,9 +47,15 @@ const en = {
       "A safety-focused BAC calculator that helps you understand your estimated blood alcohol concentration before you decide what to do next.",
     legalSection: "Legal",
     resourcesSection: "Resources",
+    toolsSection: "Calculators",
     home: "Home",
     about: "About & methodology",
+    contact: "Contact",
     getStarted: "Get Started",
+    linkChart: "BAC Chart by Weight",
+    linkAdvanced: "Advanced BAC Calculator",
+    linkWomen: "BAC Calculator for Women",
+    linkTimeToZero: "Time to Zero Calculator",
   },
   timeToZero: {
     title: "BAC Time to Zero Calculator",
@@ -309,6 +318,9 @@ const en = {
     relatedTimeToZero: "Estimate time for your BAC to fall to zero",
     relatedHowTo: "Learn how BAC is calculated",
     relatedAccuracy: "Understand how accurate BAC calculators are",
+    relatedChart: "View BAC Chart by Weight",
+    relatedAdvanced: "Use Advanced Calculator",
+    relatedWomen: "BAC Calculator for Women",
     faqTitle: "BAC Calculator FAQ",
     faqQ1: "How accurate is this BAC calculator?",
     faqA1:
@@ -479,40 +491,195 @@ const en = {
       switchTitle: "Switch country",
       switchIntro: "View BAC estimates and drink-driving information for other regions:",
     },
-    uk: {
-      title: "BAC Calculator UK – Blood Alcohol Limit and Drink-Driving Risks",
-      description:
-        "Estimate your BAC with a UK-focused calculator and see how it compares to commonly cited drink-driving limits in the United Kingdom.",
-      heroSubtitle:
-        "Understand your estimated BAC and how it relates to drink-driving limits in the UK—but never use any calculator to decide if you can drive.",
-    },
+        uk: {
+          title: "BAC Calculator UK – Blood Alcohol Limit and Drink-Driving Risks",
+          description:
+            "Estimate your BAC with a UK-focused calculator. Learn about the 80mg/100ml limit in England/Wales and the stricter 50mg limit in Scotland.",
+          heroSubtitle:
+            "Understand your estimated BAC and how it relates to drink-driving limits in the UK—but never use any calculator to decide if you can drive.",
+          legalSectionTitle: "Drink Driving Limits in the UK",
+          legalSectionBody: `The legal drink driving limits across the UK are measured in micrograms of alcohol per 100 millilitres of breath (µg/100ml), milligrams per 100 millilitres of blood (mg/100ml), or milligrams per 100 millilitres of urine (mg/100ml).
+    
+    **England, Wales, and Northern Ireland:**
+    - **Blood:** 80mg/100ml (0.08% BAC)
+    - **Breath:** 35µg/100ml
+    - **Urine:** 107mg/100ml
+    
+    **Scotland:**
+    - **Blood:** 50mg/100ml (0.05% BAC)
+    - **Breath:** 22µg/100ml
+    - **Urine:** 67mg/100ml
+    
+    **Important:** Scotland's lower limit means that even a single drink could put some drivers over the limit. There is no foolproof way to drink and stay under the limit, as it depends on your weight, age, sex, metabolism, and even stress levels.`,
+          safetySectionTitle: "Safety & Penalties",
+          safetySectionBody: `**Penalties for Drink Driving:**
+    You could face imprisonment, a driving ban, and an unlimited fine if found guilty. The actual penalty depends on the magistrates who hear your case and depends on your specific offence.
+    
+    **The "Morning After" Risk:**
+    You can still be over the limit the morning after drinking. Sleep, coffee, and cold showers do not speed up alcohol elimination. Time is the only way to get alcohol out of your system.
+    
+    **Safest Advice:**
+    The safest advice is to avoid alcohol completely if you are driving. If you plan to drink, arrange a designated driver, use public transport, or book a taxi.`,
+          faqTitle: "UK Drink Driving FAQ",
+          faq: {
+            q1: "How many units can I drink and drive?",
+            a1: "There is no safe number of units. The way alcohol affects you depends on your weight, age, sex, and metabolism. You could be over the limit after just one drink.",
+            q2: "Is the limit different in Scotland?",
+            a2: "Yes. Scotland has a stricter limit (50mg of alcohol per 100ml of blood) compared to England, Wales, and Northern Ireland (80mg/100ml).",
+            q3: "Can I drive the morning after drinking?",
+            a3: "It takes time for alcohol to leave your system. If you've had a lot to drink, you may still be over the limit the next morning. If in doubt, do not drive.",
+          },
+        },
     au: {
       title: "BAC Calculator Australia – Blood Alcohol Limit and Driving Risks",
       description:
-        "Estimate your BAC with an Australia-focused calculator and see how it compares to commonly cited drink-driving limits across Australian states and territories.",
+        "Estimate your BAC for Australian limits (0.05%). Learn about strict rules for Learner and P-plate drivers and Random Breath Testing (RBT).",
       heroSubtitle:
-        "Australian states typically apply strict BAC limits, especially for learners and professional drivers. Use estimates to stay informed—not to justify driving.",
+        "Australian states enforce strict 0.05% BAC limits and zero tolerance for new drivers. Use this tool for education, not to judge if you can drive.",
+      legalSectionTitle: "Blood Alcohol Limits in Australia",
+      legalSectionBody: `Australia enforces strict alcohol limits which vary by driver licence type. Laws are consistent across most states (NSW, VIC, QLD, WA, SA, TAS, ACT, NT).
+
+**General Licence Holders:**
+- **Limit:** 0.05% BAC
+- This applies to most full licence holders driving a standard car.
+
+**Learner, Provisional (P1/P2) & Professional Drivers:**
+- **Limit:** 0.00% BAC (Zero Tolerance)
+- If you hold a Learner or Provisional licence, or drive a truck, bus, or taxi, you must have no alcohol in your system.
+
+**Random Breath Testing (RBT):**
+Police in Australia can stop any vehicle at any time for a breath test, even if you are not driving poorly. RBT buses and patrol cars are common everywhere.`,
+      safetySectionTitle: "Penalties & Safety",
+      safetySectionBody: `**Penalties:**
+Exceeding the limit results in immediate licence suspension, heavy fines, and for high-range offences, mandatory interlock devices fitted to your car or imprisonment.
+
+**Standard Drinks:**
+Australia uses the "Standard Drink" system (10g of alcohol). However, counting drinks is notoriously inaccurate because glass sizes and pour strengths vary.
+
+**Safest Choice:**
+"Plan B" is the safest choice. If you drink, don't drive. Use rideshare, taxis, or public transport.`,
+      faqTitle: "Australia Drink Driving FAQ",
+      faq: {
+        q1: "How many drinks to stay under 0.05%?",
+        a1: "It is impossible to say exactly. A general rule of thumb often cited is 'two standard drinks in the first hour and one every hour after' for men, and less for women, but this is dangerous to rely on. Your body type and metabolism change the results significantly.",
+        q2: "What happens if I refuse a breath test?",
+        a2: "Refusing a breath test is a serious offence in Australia. You will typically be charged and face penalties similar to, or sometimes worse than, high-range drink driving.",
+        q3: "Does food help keep my BAC down?",
+        a3: "Food slows absorption but does not stop alcohol from entering your blood. You can still reach a high BAC even after a heavy meal.",
+      },
     },
     nz: {
       title: "BAC Calculator New Zealand – Blood Alcohol Limit and Driving Risks",
       description:
-        "Estimate your BAC with a New Zealand-focused calculator and see how it compares to commonly cited drink-driving limits.",
+        "Estimate your BAC for NZ limits. Understand the 250mcg/L breath limit for adults and zero tolerance for drivers under 20.",
       heroSubtitle:
-        "New Zealand uses lower limits for younger drivers and strong penalties for drink-driving. Estimates are for education only.",
+        "New Zealand has strict limits: 0.05% (approx) for adults and zero for under 20s. Estimates are for education only.",
+      legalSectionTitle: "Alcohol Limits in New Zealand",
+      legalSectionBody: `New Zealand law sets limits based on age and measures alcohol in breath (mcg/L) or blood (mg/100ml).
+
+**Drivers Aged 20 and Over:**
+- **Breath:** 250 micrograms (mcg) per litre of breath.
+- **Blood:** 50 milligrams (mg) per 100 millilitres of blood (0.05%).
+- **Penalty:** Testing between 250-400mcg typically incurs an infringement fee and demerit points. Above 400mcg is a criminal offence.
+
+**Drivers Under 20 Years Old:**
+- **Limit:** Zero (0.00%)
+- It is illegal to drive with any detectable alcohol in your system if you are under 20.
+
+**Repeat Offenders:**
+Stricter penalties, including vehicle confiscation and interlock sentences, apply to repeat offenders.`,
+      safetySectionTitle: "Safety First",
+      safetySectionBody: `**Demerit Points:**
+Even lower-level offences (250-400mcg) result in 50 demerit points. Accumulating 100 points leads to a licence suspension for 3 months.
+
+**Metabolism:**
+There is no way to speed up sobriety. Coffee and showers do not work. If you have been drinking heavily properly, do not drive early the next morning.
+
+**Alternative Transport:**
+New Zealand has strict enforcement. Always plan a safe ride home before you start drinking.`,
+      faqTitle: "New Zealand Drink Driving FAQ",
+      faq: {
+        q1: "Is the limit 0.05 or 0.08 in NZ?",
+        a1: "The limit was lowered to 0.05% (50mg per 100ml blood) in 2014. It is no longer 0.08%.",
+        q2: "Can I have one drink if I am under 20?",
+        a2: "No. The limit for drivers under 20 is zero. Even a single drink will likely put you over the limit.",
+        q3: "How does 250mcg breath relate to BAC?",
+        a3: "250mcg/L of breath is legally equivalent to 50mg/100ml (0.05%) of blood alcohol. Both are the threshold for penalties.",
+      },
     },
     ma: {
       title: "BAC Calculator Morocco – Blood Alcohol Limits and Road Safety",
       description:
-        "Estimate your BAC with a Morocco-focused calculator and learn why many sources describe very low or near-zero drink-driving limits.",
+        "Estimate BAC for Morocco. Understand the strict laws where the limit is effectively zero (0.02 g/L) and imprisonment is common.",
       heroSubtitle:
-        "Where limits are very low or close to zero, the safest option is simply not to drive after drinking at all.",
+        "Morocco treats drink-driving as a serious crime with a near-zero limit. The safest option is never to drink and drive.",
+      legalSectionTitle: "Alcohol Laws in Morocco",
+      legalSectionBody: `Morocco has extremely strict laws regarding driving under the influence of alcohol.
+
+**Legal Limit:**
+- **0.02 g/L (0.002% BAC):** This is effectively a "zero tolerance" policy.
+- Any detectable amount of alcohol in a breathalyzer or blood test is typically sufficient for prosecution.
+
+**Enforcement:**
+Police frequently use checkpoints and breathalyzers. If you are involved in an accident and alcohol is detected, the legal consequences are severe, often involving immediate detention.`,
+      safetySectionTitle: "Consequences & Safety",
+      safetySectionBody: `**Penalties:**
+Driving under the influence can lead to:
+- Imprisonment (from months to one year).
+- Heavy fines (ranging from 5,000 to 10,000 MAD or more).
+- Suspension or withdrawal of the driving licence.
+
+**Religious & Cultural Context:**
+Alcohol consumption is regulated. Public drunkenness is also a penal offence. Combining alcohol with driving is socially and legally unacceptable.
+
+**Recommendation:**
+Do not drive after consuming any amount of alcohol in Morocco. Take a taxi ("Petit Taxi" or "Grand Taxi").`,
+      faqTitle: "Morocco Drink Driving FAQ",
+      faq: {
+        q1: "Can I drive after one beer in Morocco?",
+        a1: "No. The limit is so low (0.02 g/L) that even one drink is likely to put you over the legal threshold.",
+        q2: "Do police really test tourists?",
+        a2: "Yes. Traffic laws apply to everyone, including tourists. Checkpoints are common on roads entering and exiting cities.",
+        q3: "What happens if I cause an accident while drinking?",
+        a3: "You will almost certainly face prison time, heavy fines, and be liable for all damages, as insurance typically voids coverage for DUI incidents.",
+      },
     },
     dz: {
       title: "BAC Calculator Algeria – Blood Alcohol Limits and Road Safety",
       description:
-        "Estimate your BAC with an Algeria-focused calculator and understand why many sources treat driving after drinking as effectively zero-tolerance.",
+        "Estimate BAC for Algeria. Learn about the strict 0.20 g/L (0.02%) limit and severe penalties including imprisonment.",
       heroSubtitle:
-        "In regions with zero-tolerance policies, any amount of drinking combined with driving may be unacceptable or illegal.",
+        "Algeria enforces a strict 0.02% limit. Driving with any alcohol in your system carries the risk of prison and licence loss.",
+      legalSectionTitle: "Drink Driving Law in Algeria",
+      legalSectionBody: `Algeria's traffic laws (Code de la route) are very strict concerning alcohol.
+
+**Legal Limit:**
+- **0.20 g/L (0.02% BAC):** This is a very low limit, much lower than in Europe or the US.
+- Practically, this means **zero tolerance**. A single standard drink will usually push a driver over this limit.
+
+**Testing:**
+Gendarmerie and Police use breathalyzers (alcotest) and blood tests at checkpoints.`,
+      safetySectionTitle: "Penalties & Risks",
+      safetySectionBody: `**Severe Penalties:**
+Driving under the influence (L'état d'ivresse) is punishable by:
+- **Imprisonment:** 2 months to 2 years.
+- **Fines:** 50,000 to 100,000 DZD.
+- **Licence Withdrawal:** Immediate suspension of the driving licence.
+
+**Safety:**
+Road safety is a major priority in Algeria. Drunk driving is viewed very negatively and prosecuted strictly.
+
+**Advice:**
+Never drive after drinking. The legal threshold is too low to risk "guessing" your level.`,
+      faqTitle: "Algeria Drink Driving FAQ",
+      faq: {
+        q1: "Is there a safe amount to drink and drive in Algeria?",
+        a1: "No. The limit of 0.20 g/L is extremely low. It is safer to assume a zero-tolerance policy.",
+        q2: "What is the penalty for a first offense?",
+        a2: "You risk a prison sentence of up to 2 years and a heavy fine, plus the loss of your driving licence.",
+        q3: "Does insurance cover me if I was drinking?",
+        a3: "No. Most insurance policies in Algeria explicitly exclude coverage for accidents caused while under the influence of alcohol.",
+      },
     },
   },
   about: {
@@ -573,6 +740,124 @@ const en = {
       a2: "Treat both as rough estimates and pay more attention to the higher value and the warnings. Differences usually come from different assumptions about drink size, body water, and elimination rate.",
       q3: "If the calculator shows a low BAC, is it safe to drive?",
       a3: "No. A low estimate does not guarantee that you are unimpaired or under the legal limit. The safest option after drinking is always to avoid driving yourself.",
+    },
+  },
+  bacForWomen: {
+    title: "BAC Calculator for Women – Female Blood Alcohol Estimate",
+    description:
+      "Calculate BAC specifically for women. Learn why biological differences like body water percentage and enzymes make alcohol affect females differently.",
+    heroSubtitle:
+      "Biological differences mean alcohol affects women differently than men. Use this tool to understand your estimated levels.",
+    docs: {
+      biologyTitle: "Why alcohol affects women differently",
+      biologyContent:
+        "Even if a woman and a man have the same body weight and drink the same amount, the woman will typically have a higher Blood Alcohol Concentration (BAC). This is primarily due to physiology, not tolerance.",
+      waterTitle: "Body water percentage",
+      waterContent:
+        "Alcohol is water-soluble. Women naturally have a lower percentage of body water (about 49-52%) compared to men (about 58%). This means the same amount of alcohol is dissolved in less water, resulting in a higher concentration.",
+      enzymesTitle: "Metabolic enzymes",
+      enzymesContent:
+        "Women often have lower levels of alcohol dehydrogenase (ADH), the enzyme that breaks down alcohol in the stomach before it reaches the bloodstream. As a result, more alcohol is absorbed into the blood.",
+      hormonesTitle: "Hormonal factors",
+      hormonesContent:
+        "Fluctuations in hormone levels during the menstrual cycle can also affect alcohol metabolism, causing intoxication to occur faster at certain times of the month.",
+    },
+    faqTitle: "Female BAC FAQ",
+    faq: {
+      q1: "Do women get drunk faster than men?",
+      a1: "Generally, yes. Due to lower total body water and different enzyme levels, women reach a higher BAC faster than men from the same number of drinks.",
+      q2: "Does weight loss affect my BAC?",
+      a2: "Yes. Having less body mass (specifically less water volume) means alcohol will be more concentrated in your system. Losing weight typically lowers your alcohol tolerance.",
+      q3: "Is the legal limit different for women?",
+      a3: "No. The legal limit (e.g., 0.08% or 0.05%) is the same for all drivers regardless of sex. However, women will likely reach that limit with fewer drinks than men.",
+    },
+  },
+  advancedBac: {
+    title: "Advanced BAC Calculator – Accurate Alcohol Estimation",
+    description:
+      "Use our advanced BAC calculator with Widmark formula precision. Learn expert tips to get the most accurate blood alcohol estimate possible online.",
+    heroSubtitle:
+      "For the most precise estimate, details matter. Enter your exact drink volumes, ABV, and timing to reduce calculation errors.",
+    docs: {
+      precisionTitle: "How to get a more accurate BAC estimate",
+      precisionContent:
+        "Standard calculators often fail because users enter '1 beer' without knowing its size or strength. To use this tool like a pro, check the label on your bottle for the exact volume (mL) and alcohol percentage (ABV).",
+      foodTitle: "The impact of food (Advanced)",
+      foodContent:
+        "Food delays gastric emptying, which slows down the rate alcohol enters your bloodstream. While most calculators (including this one) give a 'worst-case' estimate based on an empty stomach, eating a full meal before drinking can lower your peak BAC. Keep this in mind: the calculator shows your potential maximum.",
+      formulaTitle: "The Widmark Formula explained",
+      formulaContent:
+        "This tool uses the advanced Widmark formula, which accounts for the distribution of alcohol in the whole body water. It uses specific constants for men (0.68) and women (0.55) to determine how diluted the alcohol becomes in your system.",
+      limitationsTitle: "Limitations of advanced calculation",
+      limitationsContent:
+        "Even an advanced calculator cannot measure your individual liver function or genetic metabolic rate. These biological variables can cause your actual BAC to vary by +/- 0.02% or more from the estimate.",
+    },
+    faqTitle: "Advanced Calculator FAQ",
+    faq: {
+      q1: "Is this the most accurate BAC calculator online?",
+      a1: "We use the scientifically validated Widmark formula, which is the gold standard for estimation. However, without a blood test, no online tool is 100% perfect due to individual biological variations.",
+      q2: "How do I calculate for mixed drinks accurately?",
+      a2: "Don't guess. Ask the bartender how much spirit was used (e.g., 45ml or 60ml) and enter that as a 'Spirits' drink with the correct ABV (usually 40%). Ignoring the mixer volume is fine as it doesn't contain alcohol.",
+      q3: "Does body fat percentage affect the calculation?",
+      a3: "Yes. Alcohol does not dissolve in fat. A person with higher body fat has less body water per kg of weight, leading to a higher BAC. Our calculator uses average body composition data for your sex.",
+    },
+  },
+  bacChart: {
+    title: "BAC Calculator Chart – Blood Alcohol Levels by Weight",
+    description:
+      "View our BAC calculator chart to quickly estimate blood alcohol levels based on body weight and number of drinks. A simple visual guide for men and women.",
+    heroSubtitle:
+      "A quick reference guide to see how body weight affects estimated blood alcohol concentration (BAC) after 1 to 8 drinks.",
+    weightLabel: "Body Weight",
+    drinkUnit: "Drinks",
+    chartNoteTitle: "Important Note",
+    chartNoteContent:
+      "Values are estimates for a male on an empty stomach immediately after drinking. '1 Drink' = 1.5 oz spirits, 5 oz wine, or 12 oz beer. Females should assume a higher BAC.",
+    legendSafe: "Low Risk",
+    legendCaution: "Driving Impaired",
+    legendDanger: "Legally Intoxicated (0.08%+)",
+    docs: {
+      readChartTitle: "How to read the BAC chart",
+      readChartContent:
+        "Find your approximate body weight in the left column. Then, follow the row across to the number of drinks you have consumed. The number in the box is your estimated Blood Alcohol Concentration percentage.",
+      variablesTitle: "Why charts are less accurate than calculators",
+      variablesContent:
+        "This chart assumes a standard 'one hour' timeframe and does not account for metabolism over longer periods. It also uses a standard male constant. If you are female, over 65, or drinking over several hours, your actual BAC will differ.",
+      safetyTitle: "Using this chart for safety",
+      safetyContent:
+        "This chart is a visual aid, not a breathalyzer. If your intersection puts you anywhere near 0.05% or higher, do not drive. Impairment often begins before you reach the legal limit.",
+    },
+    faqTitle: "BAC Chart FAQ",
+    faq: {
+      q1: "Is this chart accurate for women?",
+      a1: "This specific chart uses male averages. Women typically have less body water and will have a higher BAC than shown here. As a rule of thumb, women should add roughly 20-30% to these chart values.",
+      q2: "What counts as '1 Drink' on this chart?",
+      a2: "One standard drink is defined as containing about 14 grams of pure alcohol. This is roughly 12 oz of 5% beer, 5 oz of 12% wine, or 1.5 oz of 40% spirits.",
+      q3: "Does the chart account for time?",
+      a3: "No. This chart shows estimated peak BAC assuming the alcohol is absorbed quickly. It does not subtract the 0.015% per hour that your liver eliminates. Use our main calculator for time-based estimates.",
+    },
+  },
+  contact: {
+    title: "Contact SafeBAC",
+    description:
+      "Get in touch with the SafeBAC team if you have questions, feedback, or suggestions for improving the BAC calculator.",
+    heroSubtitle:
+      "We appreciate corrections, suggestions, and ideas from health professionals, legal experts, and everyday users.",
+    sections: {
+      introTitle: "How to reach us",
+      introBody:
+        "If you have noticed a potential error, have ideas for improving the explanations, or want to discuss a collaboration, you can contact us by email.",
+      emailLabel: "Email",
+      emailValue: "support@safebac.org",
+      emailNote:
+        "Please avoid sending sensitive personal or medical information. We cannot provide individual medical, legal, or emergency advice by email.",
+      suggestionsTitle: "What you can contact us about",
+      suggestionsList1: "Suggestions for clarifying explanations or examples on the site.",
+      suggestionsList2: "Pointing out potential inaccuracies in formulas, references, or law summaries.",
+      suggestionsList3: "Ideas for new tools or educational content related to alcohol and driving safety.",
+      limitationsTitle: "What we cannot do",
+      limitationsBody:
+        "We cannot answer questions about your specific legal case, provide medical diagnoses, or tell you whether it is safe or legal for you personally to drive. For those situations, you must consult local professionals and emergency services when appropriate.",
     },
   },
 } as const;

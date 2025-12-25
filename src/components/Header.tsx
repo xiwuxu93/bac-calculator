@@ -10,10 +10,11 @@ type HeaderProps = {
 export default async function Header({ locale }: HeaderProps) {
   const resolvedLocale = resolveLocale(locale);
   const t = await getTranslations({ locale: resolvedLocale, namespace: 'common' });
-  const homeHref = getLocalePrefix(resolvedLocale) || '/';
+  
+  const homeHref = getLocalizedPath(resolvedLocale, '/');
   const timeToZeroHref = getLocalizedPath(resolvedLocale, '/bac-time-to-zero-calculator');
+  const chartHref = getLocalizedPath(resolvedLocale, '/bac-chart');
   const howToHref = getLocalizedPath(resolvedLocale, '/how-to-calculate-bac');
-  const accuracyHref = getLocalizedPath(resolvedLocale, '/most-accurate-bac-calculator');
 
   return (
     <header className="border-b border-gray-200 bg-white/80 backdrop-blur">
@@ -32,18 +33,30 @@ export default async function Header({ locale }: HeaderProps) {
           </div>
         </div>
         <div className="flex items-center justify-between gap-4">
-          <nav className="flex flex-1 flex-wrap items-center gap-3 text-xs font-medium text-gray-600 md:justify-center md:text-sm">
-            <Link href={homeHref} className="hover:text-gray-900">
+          <nav className="hidden md:flex md:gap-x-6" aria-label="Global">
+            <Link
+              href={homeHref}
+              className="text-sm font-semibold leading-6 text-gray-900 hover:text-sky-600"
+            >
               {t('navHome')}
             </Link>
-            <Link href={timeToZeroHref} className="hover:text-gray-900">
+            <Link
+              href={timeToZeroHref}
+              className="text-sm font-semibold leading-6 text-gray-900 hover:text-sky-600"
+            >
               {t('navTimeToZero')}
             </Link>
-            <Link href={howToHref} className="hover:text-gray-900">
-              {t('navHowTo')}
+            <Link
+              href={chartHref}
+              className="text-sm font-semibold leading-6 text-gray-900 hover:text-sky-600"
+            >
+              {t('navChart')}
             </Link>
-            <Link href={accuracyHref} className="hover:text-gray-900">
-              {t('navAccuracy')}
+            <Link
+              href={howToHref}
+              className="text-sm font-semibold leading-6 text-gray-900 hover:text-sky-600"
+            >
+              {t('navHowTo')}
             </Link>
           </nav>
           <div className="hidden md:block">

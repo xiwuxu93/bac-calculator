@@ -18,62 +18,134 @@ export default async function Footer() {
   return (
     <footer className="border-t border-gray-200 bg-white/80 backdrop-blur">
       <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Brand Section */}
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           <div>
-            <h3 className="font-semibold text-gray-900 mb-3">{tCommon('siteName')}</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              {tFooter('brandDescription')}
-            </p>
-          </div>
-
-          {/* Legal Links */}
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-3">{tFooter('legalSection')}</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="text-sm font-semibold leading-6 text-gray-900">
+              {tFooter('toolsSection')}
+            </h3>
+            <ul role="list" className="mt-6 space-y-4">
               <li>
-                <Link href={withPrefix('/privacy')} className="text-gray-600 hover:text-gray-900 transition">
+                <Link
+                  href={withPrefix('/')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  {tCommon('navHome')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={withPrefix('/bac-time-to-zero-calculator')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  {tFooter('linkTimeToZero')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={withPrefix('/advanced-bac-calculator')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  {tFooter('linkAdvanced')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={withPrefix('/bac-calculator-for-women')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  {tFooter('linkWomen')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={withPrefix('/bac-chart')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  {tFooter('linkChart')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold leading-6 text-gray-900">
+              {tFooter('resourcesSection')}
+            </h3>
+            <ul role="list" className="mt-6 space-y-4">
+              <li>
+                <Link
+                  href={withPrefix('/how-to-calculate-bac')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  {tCommon('navHowTo')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={withPrefix('/are-bac-calculators-accurate')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  {tCommon('navAccuracy')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={withPrefix('/bac-conversion-calculator')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  BAC Unit Converter
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={withPrefix('/about')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  {tFooter('about')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={withPrefix('/contact')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  {tFooter('contact')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="mt-10 sm:mt-0">
+            <h3 className="text-sm font-semibold leading-6 text-gray-900">
+              {tFooter('legalSection')}
+            </h3>
+            <ul role="list" className="mt-6 space-y-4">
+              <li>
+                <Link
+                  href={withPrefix('/privacy')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
                   {tCommon('privacyPolicy')}
                 </Link>
               </li>
               <li>
-                <Link href={withPrefix('/terms')} className="text-gray-600 hover:text-gray-900 transition">
+                <Link
+                  href={withPrefix('/terms')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
                   {tCommon('termsOfService')}
                 </Link>
               </li>
               <li>
-                <Link href={withPrefix('/disclaimer')} className="text-gray-600 hover:text-gray-900 transition">
+                <Link
+                  href={withPrefix('/disclaimer')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
                   {tCommon('disclaimer')}
                 </Link>
               </li>
             </ul>
           </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-3">{tFooter('resourcesSection')}</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href={withPrefix('/')} className="text-gray-600 hover:text-gray-900 transition">
-                  {tCommon('navHome')}
-                </Link>
-              </li>
-              <li>
-                <Link href={withPrefix('/about')} className="text-gray-600 hover:text-gray-900 transition">
-                  {tFooter('about')}
-                </Link>
-              </li>
-              <li>
-                <a href="#main-content" className="text-gray-600 hover:text-gray-900 transition">
-                  {tFooter('getStarted')}
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
-
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-200">
+        <div className="pt-8 mt-12 border-t border-gray-200">
           <p className="text-center text-sm text-gray-500">
             © <CurrentYear /> {tCommon('siteName')}. {tCommon('allRightsReserved')}
           </p>
