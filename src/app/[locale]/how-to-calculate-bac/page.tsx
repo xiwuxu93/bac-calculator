@@ -3,9 +3,10 @@ import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MarkdownContent from '@/components/MarkdownContent';
-import MiniBacCalculator from '@/components/MiniBacCalculator';
 import FAQ from '@/components/FAQ';
+import CTA from '@/components/CTA';
 import { Locale, defaultLocale, getLocalizedPath, locales } from '@/lib/i18n';
+import { getLanguageAlternates, getOrganizationSchema } from '@/lib/seo';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
@@ -26,10 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: t('description'),
     alternates: {
       canonical: localizedUrl,
-      languages: {
-        en: `${SITE_URL}/how-to-calculate-bac`,
-        'x-default': `${SITE_URL}/how-to-calculate-bac`,
-      },
+      languages: getLanguageAlternates('/how-to-calculate-bac'),
     },
     openGraph: {
       type: 'article',
@@ -63,7 +61,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function HowToCalculateBacPage({ params }: PageProps) {
   const locale = (locales.includes(params.locale as Locale) ? params.locale : defaultLocale) as Locale;
   const t = await getTranslations({ locale, namespace: 'howToBac' });
-  const common = await getTranslations({ locale, namespace: 'common' });
+  const home = await getTranslations({ locale, namespace: 'home' });
 
   const docsMarkdown = `
 # ${t('docs.introTitle')}
@@ -104,13 +102,19 @@ ${t('docs.limitationsContent')}
     name: t('title'),
     description: t('description'),
     mainEntityOfPage: `${SITE_URL}/how-to-calculate-bac`,
+    step: [
+      {
+        '@type': 'HowToStep',
+        text: t('docs.stepsContent'),
+      }
+    ],
   };
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <Header locale={locale} />
       <main className="flex-1">
-        <div className="mx-auto max-w-5xl px-4 py-8 md:py-12">
+        <div className="mx-auto max-w-4xl px-4 py-8 md:py-12">
           <div className="mb-8 text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               {t('title')}
@@ -120,9 +124,7 @@ ${t('docs.limitationsContent')}
             </p>
           </div>
 
-          <div className="mb-10">
-            <MiniBacCalculator defaultCountryCode="US" />
-          </div>
+          {/* Calculator Removed: Focus on educational content */}
 
           <div className="mb-16">
             <MarkdownContent content={docsMarkdown} />
@@ -138,24 +140,28 @@ ${t('docs.limitationsContent')}
             />
           </div>
 
-          <div className="mb-16 flex flex-wrap gap-3 text-sm">
-            <a
-              href={getLocalizedPath(locale, '/')}
-              className="rounded-full border border-sky-600 px-4 py-2 font-medium text-sky-700 hover:bg-sky-50"
-            >
-              {common('navHome')}
-            </a>
-            <a
-              href={getLocalizedPath(locale, '/bac-time-to-zero-calculator')}
-              className="rounded-full border border-slate-300 px-4 py-2 font-medium text-slate-700 hover:bg-slate-50"
-            >
-              {common('navTimeToZero')}
-            </a>
-          </div>
+          {/* Added CTA to drive users who actually want to calculate to the right place */}
+          <CTA
+            title={home('ctaTitle')}
+            description={home('ctaDescription')}
+            primaryButton={{
+              text: home('ctaButton'),
+              href: "/",
+            }}
+            variant="gradient"
+            size="md"
+          />
 
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              ...getOrganizationSchema(),
+            }) }}
           />
         </div>
       </main>
