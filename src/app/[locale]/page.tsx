@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BacCalculator from '@/components/BacCalculator';
+import BacChart from '@/components/BacChart';
 import MarkdownContent from '@/components/MarkdownContent';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
@@ -74,6 +75,7 @@ export default async function HomePage({ params }: PageProps) {
   const locale = params.locale as Locale;
   const home = await getTranslations({ locale, namespace: 'home' });
   const metadata = await getTranslations({ locale, namespace: 'metadata' });
+  const bacChartT = await getTranslations({ locale, namespace: 'bacChart' });
 
   const webAppSchema = {
     '@context': 'https://schema.org',
@@ -196,6 +198,15 @@ ${home('safetyContent')}
           {/* Main Tool Area */}
           <div id="tool" className="mb-16">
             <BacCalculator defaultCountryCode="US" enableLocalStorage />
+          </div>
+
+          {/* Quick Reference Chart */}
+          <div className="mb-16">
+            <div className="mb-6 text-center">
+               <h2 className="text-2xl font-bold text-gray-900">{bacChartT('title')}</h2>
+               <p className="text-gray-600">{bacChartT('heroSubtitle')}</p>
+            </div>
+            <BacChart unit="imperial" />
           </div>
 
           {/* Documentation Section */}

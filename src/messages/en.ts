@@ -348,18 +348,26 @@ const en = {
     placeholderDescription:
       "We are building a safety-focused BAC calculator. For now, learn how BAC works and why you should never drink and drive.",
   },
+  consent: {
+    title: "We use cookies for ads and analytics",
+    desc:
+      "With your permission, we use cookies to support Google AdSense and basic analytics. You can review details in our Privacy Policy.",
+    accept: "Accept",
+    reject: "Reject",
+    learnMore: "Learn more",
+  },
   privacy: {
     title: "Privacy Policy",
     description: "Learn how we handle and protect information you enter into the BAC calculator.",
-    intro: "We designed this BAC calculator so that calculations happen in your browser and you retain full control of what you enter.",
+    intro: "We designed this BAC calculator so that calculations happen in your browser. We also use third-party services for advertising and analytics.",
     dataCollectionTitle: "Data Collection",
-    dataCollectionContent: "We do not collect, store, or transmit the values you enter into the BAC calculator, such as drinks, body weight, or timing. All calculations run locally on your device and are never shared with our servers.",
+    dataCollectionContent: "We do not collect, store, or transmit the specific values you enter into the BAC calculator (drinks, weight, etc.) to our servers. These calculations run locally on your device.",
     analyticsTitle: "Analytics",
-    analyticsContent: "We may use privacy-friendly analytics to observe aggregate usage patterns, such as page views and device types. These analytics never contain the specific BAC values or drink information you enter.",
+    analyticsContent: "We use analytics tools to observe aggregate usage patterns, such as page views and device types. These analytics do not contain your personal calculator inputs.",
     cookiesTitle: "Cookies",
-    cookiesContent: "The site does not set tracking cookies. Your browser may cache assets to improve performance, which you can clear at any time.",
+    cookiesContent: "We use Google Consent Mode. Advertising and analytics cookies are denied by default until you grant consent. You can manage your preferences at any time.",
     thirdPartiesTitle: "Third-Party Services",
-    thirdPartiesContent: "If we embed third-party resources (for example fonts or analytics), they are selected for their privacy posture. Because BAC information can be sensitive, we avoid sending your calculator inputs to third parties.",
+    thirdPartiesContent: "We use third-party services including Google AdSense to serve ads. These vendors may use cookies to serve ads based on your prior visits to this or other websites.",
     changesTitle: "Policy Updates",
     changesContent: "We may update this policy to reflect product changes or legal requirements. Significant updates will be clearly communicated on this page.",
     contactTitle: "Contact",
@@ -701,9 +709,9 @@ Never drive after drinking. The legal threshold is too low to risk "guessing" yo
       safetyTitle: "How you should use this site",
       safetyBody:
         "Use SafeBAC Calculator as an educational tool to understand risk, not as a decision engine. Higher estimates should be viewed as warnings. Lower estimates should never be treated as proof that you are safe or legal to drive. If you have been drinking, the safest choice is always to avoid driving yourself and find another way home.",
-      reviewTitle: "Medical and legal review",
+      reviewTitle: "Scientific basis",
       reviewBody:
-        "We plan to collaborate with medical and legal professionals to review the formulas, explanations, and safety messaging on this site. When formal reviewers are added, their credentials and the dates of review will be listed here so that you can see who has helped check the information.",
+        "The calculations presented are based on peer-reviewed forensic science, specifically the Widmark formula and its subsequent refinements. We use standard elimination rates (0.015% per hour) and sex-specific distribution ratios (0.68 for men, 0.55 for women) accepted by toxicology experts, though individual results will vary.",
       updatesTitle: "Content updates",
       updatesBody:
         "Alcohol research and traffic laws change over time. We periodically review the content and references on this site and update them as needed. If you believe something is outdated or inaccurate, please use the contact details in the disclaimer and privacy policy to let us know.",
