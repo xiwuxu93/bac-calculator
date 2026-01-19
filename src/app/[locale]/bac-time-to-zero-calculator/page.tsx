@@ -80,6 +80,25 @@ ${t('docs.mythsContent')}
 ${t('docs.safetyContent')}
 `;
 
+  const faqItems = [
+    {
+      question: t('faq.q1'),
+      answer: t('faq.a1'),
+    },
+    {
+      question: t('faq.q2'),
+      answer: t('faq.a2'),
+    },
+    {
+      question: t('faq.q3'),
+      answer: t('faq.a3'),
+    },
+    {
+      question: t('faq.q4'),
+      answer: t('faq.a4'),
+    },
+  ];
+
   const webAppSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -95,20 +114,18 @@ ${t('docs.safetyContent')}
     ...getOrganizationSchema(),
   };
 
-  const faqItems = [
-    {
-      question: t('faq.q1'),
-      answer: t('faq.a1'),
-    },
-    {
-      question: t('faq.q2'),
-      answer: t('faq.a2'),
-    },
-    {
-      question: t('faq.q3'),
-      answer: t('faq.a3'),
-    },
-  ];
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -149,6 +166,10 @@ ${t('docs.safetyContent')}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
           />
         </div>
       </main>

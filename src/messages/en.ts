@@ -104,10 +104,10 @@ const en = {
         "These times are only rough estimates based on generalized elimination rates. Your actual BAC can rise or fall differently. Never rely on this tool to decide when it is safe or legal to drive.",
     },
     docs: {
-      aboutTitle: "What does BAC time to zero mean?",
+      aboutTitle: "Alcohol Metabolism & Time to Zero",
       aboutContent:
-        "BAC time to zero is an estimate of how long it might take for your body to metabolize alcohol so that your measured blood alcohol concentration returns toward 0.00%. It is always an approximation because metabolism varies widely between people and even for the same person on different days.",
-      factorsTitle: "What affects how fast BAC falls?",
+        "BAC time to zero is an estimate of how long it might take for your body to metabolize alcohol so that your measured blood alcohol concentration returns toward 0.00%. On average, the liver eliminates about 0.015g/100mL of alcohol per hour (metabolic rate), but this varies widely between people and even for the same person on different days.",
+      factorsTitle: "Factors Affecting Alcohol Metabolism Rate",
       factorsContent:
         "Typical BAC elimination rates are often described as roughly 0.010–0.020% BAC per hour, but your actual rate can be slower or faster. Genetics, liver health, medications, food, body composition, drinking pattern, and many other factors all influence how quickly your BAC changes.",
       mythsTitle: "Why quick‑fix sobriety myths are dangerous",
@@ -125,6 +125,8 @@ const en = {
       a2: "Not in any meaningful or safe way. Time is the key factor. Coffee, cold showers, or exercise may make you feel different, but they do not reliably speed up the elimination of alcohol from your body.",
       q3: "If the tool says my BAC might be low enough, can I drive?",
       a3: "No. You must never use this or any BAC calculator to decide whether it is safe or legal to drive. If you have been drinking, the safest choice is always not to drive.",
+      q4: "Does sleeping help lower BAC faster?",
+      a4: "No. Sleep is good for recovery, but your liver eliminates alcohol at a constant rate regardless of whether you are awake or asleep. You cannot force your BAC down simply by sleeping.",
     },
   },
   howToBac: {
@@ -145,7 +147,7 @@ const en = {
         "A simple example might assume a certain number of drinks, each with a defined volume and ABV, convert that into grams of pure alcohol, divide by an estimated distribution factor based on body weight and sex, and then subtract a fixed amount per hour since drinking began.",
       limitationsTitle: "Why these calculations are only estimates",
       limitationsContent:
-        "Real human bodies do not follow a single formula. Metabolism varies with genetics, liver health, food, medications, hormones, stress, and more. Even with perfect inputs, Widmark-style formulas can only produce an approximate BAC.",
+        "Real human bodies do not follow a single formula. Metabolism varies with genetics, liver health, food, medications, hormones, stress, and more. Even with perfect inputs, Widmark-style formulas can only produce an approximate BAC. If you want to know when this BAC will drop to zero, try our [Time to Zero Calculator](/bac-time-to-zero-calculator).",
     },
     faqTitle: "Questions about BAC formulas",
     faq: {
@@ -708,7 +710,7 @@ Never drive after drinking. The legal threshold is too low to risk "guessing" yo
         "Even with detailed inputs, formulas cannot know your exact blood alcohol concentration. Metabolism can vary with genetics, liver health, medications, food, hormones, sleep, and many other factors. Two people who drink the same amount may have very different BAC levels. For this reason, all values shown on this site must be treated as rough estimates only.",
       safetyTitle: "How you should use this site",
       safetyBody:
-        "Use SafeBAC Calculator as an educational tool to understand risk, not as a decision engine. Higher estimates should be viewed as warnings. Lower estimates should never be treated as proof that you are safe or legal to drive. If you have been drinking, the safest choice is always to avoid driving yourself and find another way home.",
+        "Use SafeBAC Calculator as an educational tool to understand risk, not as a decision engine. Higher estimates should be viewed as warnings. Lower estimates should never be treated as proof that you are safe or legal to drive. If you have been drinking, the safest choice is always to avoid driving yourself and find another way home. You can use our [Time to Zero Calculator](/bac-time-to-zero-calculator) to see how long alcohol stays in your system.",
       reviewTitle: "Scientific basis",
       reviewBody:
         "The calculations presented are based on peer-reviewed forensic science, specifically the Widmark formula and its subsequent refinements. We use standard elimination rates (0.015% per hour) and sex-specific distribution ratios (0.68 for men, 0.55 for women) accepted by toxicology experts, though individual results will vary.",
@@ -751,9 +753,9 @@ Never drive after drinking. The legal threshold is too low to risk "guessing" yo
     },
   },
   bacForWomen: {
-    title: "BAC Calculator for Women – Female Blood Alcohol Estimate",
+    title: "BAC Calculator for Women: By Weight & Drink Type - SafeBAC",
     description:
-      "Calculate BAC specifically for women. Learn why biological differences like body water percentage and enzymes make alcohol affect females differently.",
+      "Calculate estimated Blood Alcohol Concentration (BAC) for women based on weight and metabolism. Understand why alcohol affects females differently.",
     heroSubtitle:
       "Biological differences mean alcohol affects women differently than men. Use this tool to understand your estimated levels.",
     docs: {
@@ -795,7 +797,7 @@ Never drive after drinking. The legal threshold is too low to risk "guessing" yo
         "Food delays gastric emptying, which slows down the rate alcohol enters your bloodstream. While most calculators (including this one) give a 'worst-case' estimate based on an empty stomach, eating a full meal before drinking can lower your peak BAC. Keep this in mind: the calculator shows your potential maximum.",
       formulaTitle: "The Widmark Formula explained",
       formulaContent:
-        "This tool uses the advanced Widmark formula, which accounts for the distribution of alcohol in the whole body water. It uses specific constants for men (0.68) and women (0.55) to determine how diluted the alcohol becomes in your system.",
+        "This tool uses the advanced Widmark formula, which accounts for the distribution of alcohol in the whole body water. It uses specific constants for men (0.68) and women (0.55) to determine how diluted the alcohol becomes in your system. While some users search for the 'Celtic BAC calculator' method, the Widmark formula remains the global standard for forensic alcohol estimation.",
       limitationsTitle: "Limitations of advanced calculation",
       limitationsContent:
         "Even an advanced calculator cannot measure your individual liver function or genetic metabolic rate. These biological variables can cause your actual BAC to vary by +/- 0.02% or more from the estimate.",
@@ -811,38 +813,42 @@ Never drive after drinking. The legal threshold is too low to risk "guessing" yo
     },
   },
   bacChart: {
-    title: "BAC Calculator Chart – Blood Alcohol Levels by Weight",
+    title: "BAC Chart by Weight & Gender (Free Printable) - SafeBAC",
     description:
-      "View our BAC calculator chart to quickly estimate blood alcohol levels based on body weight and number of drinks. A simple visual guide for men and women.",
+      "Free printable BAC charts for men and women. Quickly estimate blood alcohol levels based on body weight and number of drinks. Download as PDF or print.",
     heroSubtitle:
-      "A quick reference guide to see how body weight affects estimated blood alcohol concentration (BAC) after 1 to 8 drinks.",
+      "Download and print our free Blood Alcohol Concentration (BAC) charts. Quickly estimate your level based on weight and gender.",
     weightLabel: "Body Weight",
     drinkUnit: "Drinks",
     chartNoteTitle: "Important Note",
     chartNoteContent:
-      "Values are estimates for a male on an empty stomach immediately after drinking. '1 Drink' = 1.5 oz spirits, 5 oz wine, or 12 oz beer. Females should assume a higher BAC.",
+      "Values are approximate estimates. '1 Drink' = 1.5 oz spirits, 5 oz wine, or 12 oz beer. Choose your sex to see the correct estimates.",
     legendSafe: "Low Risk",
     legendCaution: "Driving Impaired",
     legendDanger: "Legally Intoxicated (0.08%+)",
+    genderLabel: "Select Sex:",
+    male: "Male",
+    female: "Female",
+    printButton: "Print Chart",
     docs: {
       readChartTitle: "How to read the BAC chart",
       readChartContent:
-        "Find your approximate body weight in the left column. Then, follow the row across to the number of drinks you have consumed. The number in the box is your estimated Blood Alcohol Concentration percentage.",
+        "First, select your biological sex using the toggle above the chart. Find your approximate body weight in the left column. Then, follow the row across to the number of drinks you have consumed. The number in the box is your estimated Blood Alcohol Concentration percentage.",
       variablesTitle: "Why charts are less accurate than calculators",
       variablesContent:
-        "This chart assumes a standard 'one hour' timeframe and does not account for metabolism over longer periods. It also uses a standard male constant. If you are female, over 65, or drinking over several hours, your actual BAC will differ.",
+        "This chart assumes a standard 'one hour' timeframe and does not account for metabolism over longer periods. It provides a static snapshot. For a dynamic estimate that accounts for time, food, and metabolism, use our interactive calculator.",
       safetyTitle: "Using this chart for safety",
       safetyContent:
         "This chart is a visual aid, not a breathalyzer. If your intersection puts you anywhere near 0.05% or higher, do not drive. Impairment often begins before you reach the legal limit.",
     },
     faqTitle: "BAC Chart FAQ",
     faq: {
-      q1: "Is this chart accurate for women?",
-      a1: "This specific chart uses male averages. Women typically have less body water and will have a higher BAC than shown here. As a rule of thumb, women should add roughly 20-30% to these chart values.",
-      q2: "What counts as '1 Drink' on this chart?",
-      a2: "One standard drink is defined as containing about 14 grams of pure alcohol. This is roughly 12 oz of 5% beer, 5 oz of 12% wine, or 1.5 oz of 40% spirits.",
+      q1: "Can I print this chart?",
+      a1: "Yes. This page is designed to be printer-friendly. You can print it to keep in your wallet, car, or bar as a quick reference guide.",
+      q2: "Why are the numbers different for men and women?",
+      a2: "Women typically have less body water than men of the same weight. This means alcohol is less diluted in their bodies, resulting in a higher BAC for the same number of drinks.",
       q3: "Does the chart account for time?",
-      a3: "No. This chart shows estimated peak BAC assuming the alcohol is absorbed quickly. It does not subtract the 0.015% per hour that your liver eliminates. Use our main calculator for time-based estimates.",
+      a3: "No. This chart shows estimated peak BAC assuming the alcohol is absorbed quickly. It does not subtract the alcohol your liver eliminates over time. Use our main calculator for time-based estimates.",
     },
   },
   contact: {
