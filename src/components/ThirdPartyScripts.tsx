@@ -1,11 +1,10 @@
 import Script from 'next/script';
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 const isProd = process.env.NODE_ENV === 'production';
 
 export default function ThirdPartyScripts() {
-  if (!GA_MEASUREMENT_ID && !ADSENSE_CLIENT_ID && !isProd) {
+  if (!GA_MEASUREMENT_ID && !isProd) {
     return null;
   }
 
@@ -28,14 +27,6 @@ export default function ThirdPartyScripts() {
         </>
       ) : null}
 
-      {ADSENSE_CLIENT_ID ? (
-        <Script
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
-          strategy="lazyOnload"
-          crossOrigin="anonymous"
-        />
-      ) : null}
-
       {isProd ? (
         <Script
           src="https://scripts.scriptwrapper.com/tags/7a58edc2-df76-4bb8-9b63-292011f23f69.js"
@@ -47,5 +38,6 @@ export default function ThirdPartyScripts() {
     </>
   );
 }
+
 
 
