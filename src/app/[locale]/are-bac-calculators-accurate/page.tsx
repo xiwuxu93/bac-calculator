@@ -110,7 +110,8 @@ ${t('usageBody')}
     <div className="flex min-h-screen flex-col bg-white">
       <Header locale={locale} />
       <main className="flex-1">
-        <article className="entry-content mx-auto max-w-5xl px-4 py-8 md:py-12">
+        <div className="mx-auto max-w-7xl px-4 py-8 md:py-12 flex gap-8 justify-center items-start">
+          <article className="entry-content flex-grow max-w-4xl">
           <div className="mb-8 text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               {t('title')}
@@ -153,7 +154,13 @@ ${t('usageBody')}
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
           />
-        </article>
+          </article>
+          <aside className="sidebar-container hidden xl:block w-[320px] flex-shrink-0 bg-gray-50 rounded-2xl p-6 border border-gray-100 min-h-[600px] sticky top-24">
+            <div className="flex flex-col items-center justify-center h-[500px] border border-dashed border-gray-300 rounded-lg text-gray-400 text-xs font-semibold uppercase tracking-wider">
+              <span>Advertisement</span>
+            </div>
+          </aside>
+        </div>
       </main>
       <Footer />
     </div>

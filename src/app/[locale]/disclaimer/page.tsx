@@ -97,7 +97,8 @@ export default async function DisclaimerPage({ params }: PageProps) {
     <div className="flex min-h-screen flex-col bg-gray-50">
       <Header locale={locale} />
       <main className="flex-1 px-4 py-12">
-        <article className="entry-content mx-auto max-w-4xl rounded-2xl bg-white p-6 shadow-sm border border-gray-100 md:p-12">
+        <div className="mx-auto max-w-7xl px-4 py-12 flex gap-8 justify-center items-start">
+          <article className="entry-content flex-grow max-w-4xl rounded-2xl bg-white p-6 shadow-sm border border-gray-100 md:p-12">
           <h1>{disclaimer('title')}</h1>
           <p className="text-center text-gray-600 !mb-2">{disclaimer('description')}</p>
           <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold text-center !mb-8 border-b border-gray-100 pb-6">
@@ -161,7 +162,13 @@ export default async function DisclaimerPage({ params }: PageProps) {
               {common('backToHome')}
             </Link>
           </div>
-        </article>
+          </article>
+          <aside className="sidebar-container hidden xl:block w-[320px] flex-shrink-0 bg-gray-50 rounded-2xl p-6 border border-gray-100 min-h-[600px] sticky top-24">
+            <div className="flex flex-col items-center justify-center h-[500px] border border-dashed border-gray-300 rounded-lg text-gray-400 text-xs font-semibold uppercase tracking-wider">
+              <span>Advertisement</span>
+            </div>
+          </aside>
+        </div>
       </main>
 
       <script

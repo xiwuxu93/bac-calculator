@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
-import CookieConsent from '@/components/CookieConsent';
 import { Locale, locales, resolveLocale } from '@/lib/i18n';
 
 export const dynamicParams = false;
@@ -31,7 +30,6 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider key={resolved} locale={resolved} messages={messages}>
       {children}
-      <CookieConsent />
     </NextIntlClientProvider>
   );
 }
