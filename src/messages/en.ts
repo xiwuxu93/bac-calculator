@@ -353,7 +353,7 @@ const en = {
   consent: {
     title: "We use cookies for ads and analytics",
     desc:
-      "With your permission, we use cookies to support Google AdSense and basic analytics. You can review details in our Privacy Policy.",
+      "With your permission, we use cookies to support personalized ads and basic analytics. You can review details in our Privacy Policy.",
     accept: "Accept",
     reject: "Reject",
     learnMore: "Learn more",
@@ -369,7 +369,7 @@ const en = {
     cookiesTitle: "Cookies",
     cookiesContent: "We use Google Consent Mode. Advertising and analytics cookies are denied by default until you grant consent. You can manage your preferences at any time.",
     thirdPartiesTitle: "Third-Party Services",
-    thirdPartiesContent: "We use third-party services including Google AdSense to serve ads. These vendors may use cookies to serve ads based on your prior visits to this or other websites.",
+    thirdPartiesContent: "We use third-party services including our advertising partners to serve ads. These vendors may use cookies to serve ads based on your prior visits to this or other websites.",
     changesTitle: "Policy Updates",
     changesContent: "We may update this policy to reflect product changes or legal requirements. Significant updates will be clearly communicated on this page.",
     contactTitle: "Contact",
