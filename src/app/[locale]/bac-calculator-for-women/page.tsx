@@ -163,11 +163,7 @@ ${t('docs.hormonesContent')}
             }) }}
           />
           </article>
-          <aside className="sidebar-container hidden xl:block w-[320px] flex-shrink-0 bg-gray-50 rounded-2xl p-6 border border-gray-100 min-h-[600px] sticky top-24">
-            <div className="flex flex-col items-center justify-center h-[500px] border border-dashed border-gray-300 rounded-lg text-gray-400 text-xs font-semibold uppercase tracking-wider">
-              <span>Advertisement</span>
-            </div>
-          </aside>
+          <aside className="sidebar-container hidden xl:block w-[320px] flex-shrink-0" />
         </div>
       </main>
       <Footer />
