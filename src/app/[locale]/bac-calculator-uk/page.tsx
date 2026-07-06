@@ -162,7 +162,7 @@ ${t('uk.safetySectionBody')}
             }) }}
           />
           </article>
-          <aside className="sidebar-container hidden xl:block w-[320px] flex-shrink-0" />
+          <aside className="sidebar hidden xl:block w-[320px] flex-shrink-0" />
         </div>
       </main>
       <Footer />
