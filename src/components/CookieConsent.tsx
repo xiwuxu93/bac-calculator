@@ -1,12 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import { getLocalizedPath, Locale } from '@/lib/i18n';
 
 export default function CookieConsent() {
   const t = useTranslations('consent');
+  const locale = useLocale() as Locale;
   const [isVisible, setIsVisible] = useState(false);
+
 
   useEffect(() => {
     const consent = localStorage.getItem('safebac-consent');
@@ -49,7 +52,7 @@ export default function CookieConsent() {
           <p className="font-semibold text-gray-900">{t('title')}</p>
           <p className="text-sm text-gray-600">
             {t('desc')}{' '}
-            <Link href="/privacy" className="text-sky-600 hover:underline">
+            <Link href={getLocalizedPath(locale, '/privacy')} className="text-sky-600 hover:underline">
               {t('learnMore')}
             </Link>
           </p>

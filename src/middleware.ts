@@ -6,16 +6,23 @@ import { defaultLocale, locales } from '@/lib/i18n';
 const intlMiddleware = createMiddleware({
   locales,
   defaultLocale,
-  localePrefix: 'as-needed',
+  localePrefix: 'always',
 });
 
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  if (pathname === '/en' || pathname.startsWith('/en/')) {
+
+  // Verify if pathname already starts with a supported locale prefix
+  const hasLocale = locales.some(
+    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
+  );
+
+  if (!hasLocale) {
     const url = request.nextUrl.clone();
-    url.pathname = pathname === '/en' ? '/' : pathname.replace(/^\/en/, '');
+    url.pathname = `/${defaultLocale}${pathname === '/' ? '' : pathname}`;
     return NextResponse.redirect(url, 308);
   }
+
   return intlMiddleware(request);
 }
 

@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale = (locales.includes(params.locale as Locale) ? params.locale : defaultLocale) as Locale;
   const metadata = await getTranslations({ locale, namespace: 'metadata' });
   const t = await getTranslations({ locale, namespace: 'countryBac' });
-  const localePrefix = locale === defaultLocale ? '' : `/${locale}`;
+  const localePrefix = `/${locale}`;
   const localizedUrl = `${SITE_URL}${localePrefix}/bac-calculator-nz`;
   const imageUrl = `${SITE_URL}/og-image.svg`;
 
@@ -98,7 +98,7 @@ ${t('nz.safetySectionBody')}
     <div className="flex min-h-screen flex-col bg-white">
       <Header locale={locale} />
       <main className="flex-1">
-        <div className="mx-auto max-w-5xl px-4 py-8 md:py-12">
+        <article className="entry-content mx-auto max-w-5xl px-4 py-8 md:py-12">
           <div className="mb-8 text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               {t('nz.title')}
@@ -158,7 +158,7 @@ ${t('nz.safetySectionBody')}
               ...getOrganizationSchema(),
             }) }}
           />
-        </div>
+        </article>
       </main>
       <Footer />
     </div>

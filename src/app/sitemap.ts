@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ] as const;
 
   return locales.flatMap((locale) => {
-    const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
+    const localePrefix = `/${locale}`;
 
     return routes.map((route) => ({
       url: `${SITE_URL}${localePrefix}${route.path === "/" ? "" : route.path}`,

@@ -9,3 +9,25 @@ html {
 body {
   @apply bg-gray-100 text-gray-900 antialiased;
 }
+
+/* Flat Article Editorial Typography Styles for Ad Optimization */
+.entry-content > h1 {
+  @apply text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl text-center mb-4;
+}
+
+.entry-content > h2 {
+  @apply text-xl font-bold text-gray-900 mt-8 mb-4 border-b border-gray-100 pb-2;
+}
+
+.entry-content > p {
+  @apply text-gray-700 leading-relaxed mb-6;
+}
+
+.entry-content > ul {
+  @apply list-disc pl-6 space-y-2 mb-6 text-gray-700;
+}
+
+.entry-content > ol {
+  @apply list-decimal pl-6 space-y-2 mb-6 text-gray-700;
+}
+

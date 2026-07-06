@@ -18,10 +18,7 @@ export default function LanguageSwitcher() {
       <div className="flex items-center gap-2">
       {locales.map((targetLocale) => {
         const isActive = targetLocale === locale;
-        const href =
-          targetLocale === defaultLocale
-            ? normalizedPath
-            : `/${targetLocale}${normalizedPath === '/' ? '' : normalizedPath}`;
+        const href = `/${targetLocale}${normalizedPath === '/' ? '' : normalizedPath}`;
 
         return (
           <Link

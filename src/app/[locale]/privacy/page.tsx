@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale = (locales.includes(params.locale as Locale) ? params.locale : defaultLocale) as Locale;
   const metadata = await getTranslations({ locale, namespace: 'metadata' });
   const privacy = await getTranslations({ locale, namespace: 'privacy' });
-  const localePrefix = locale === defaultLocale ? '' : `/${locale}`;
+  const localePrefix = `/${locale}`;
   const localizedUrl = `${SITE_URL}${localePrefix}/privacy`;
   const imageUrl = `${SITE_URL}/og-image.png`;
 
@@ -77,7 +77,7 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
   const privacy = await getTranslations({ locale, namespace: 'privacy' });
   const common = await getTranslations({ locale, namespace: 'common' });
   const disclaimer = await getTranslations({ locale, namespace: 'disclaimer' });
-  const localePrefix = locale === defaultLocale ? '' : `/${locale}`;
+  const localePrefix = `/${locale}`;
   const localizedPath = (path: string) => {
     if (path === '/' || path === '') {
       return localePrefix || '/';
@@ -86,72 +86,55 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-50">
       <Header locale={locale} />
       <main className="flex-1 px-4 py-12">
-        <div className="mx-auto flex max-w-4xl flex-col gap-12">
-          <div className="space-y-4 text-center">
-            <h1 className="text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
-              {privacy('title')}
-            </h1>
-            <p className="text-base text-gray-600 md:text-lg">{privacy('description')}</p>
+        <article className="entry-content mx-auto max-w-4xl rounded-2xl bg-white p-6 shadow-sm border border-gray-100 md:p-12">
+          <h1>{privacy('title')}</h1>
+          <p className="text-center text-gray-600 !mb-8 border-b border-gray-100 pb-6">{privacy('description')}</p>
+
+          <p className="text-lg text-gray-700 leading-relaxed">{privacy('intro')}</p>
+
+          <h2>{privacy('dataCollectionTitle')}</h2>
+          <p>{privacy('dataCollectionContent')}</p>
+
+          <h2>{privacy('analyticsTitle')}</h2>
+          <p>{privacy('analyticsContent')}</p>
+
+          <h2>{privacy('cookiesTitle')}</h2>
+          <p>{privacy('cookiesContent')}</p>
+
+          <h2>{privacy('thirdPartiesTitle')}</h2>
+          <p>{privacy('thirdPartiesContent')}</p>
+
+          <h2>{privacy('changesTitle')}</h2>
+          <p>{privacy('changesContent')}</p>
+
+          <h2>{privacy('contactTitle')}</h2>
+          <p>{privacy('contactContent')}</p>
+
+          <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-700 my-8">
+            <p className="font-semibold uppercase tracking-wide !mb-2">{common('professionalUseOnly')}</p>
+            <p className="!mb-4">{disclaimer('description')}</p>
+            <Link
+              href={localizedPath('/disclaimer')}
+              className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-600 px-3 py-1 text-xs font-medium text-amber-700 transition hover:bg-amber-600 hover:text-white"
+            >
+              {common('viewFullDisclaimer')}
+            </Link>
           </div>
 
-          <div className="space-y-8 rounded-lg bg-white p-6 shadow-lg md:p-8">
-            <p className="text-gray-700">{privacy('intro')}</p>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{privacy('dataCollectionTitle')}</h2>
-              <p className="text-gray-700">{privacy('dataCollectionContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{privacy('analyticsTitle')}</h2>
-              <p className="text-gray-700">{privacy('analyticsContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{privacy('cookiesTitle')}</h2>
-              <p className="text-gray-700">{privacy('cookiesContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{privacy('thirdPartiesTitle')}</h2>
-              <p className="text-gray-700">{privacy('thirdPartiesContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{privacy('changesTitle')}</h2>
-              <p className="text-gray-700">{privacy('changesContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{privacy('contactTitle')}</h2>
-              <p className="text-gray-700">{privacy('contactContent')}</p>
-            </section>
-
-            <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-700">
-              <p className="font-semibold uppercase tracking-wide">{common('professionalUseOnly')}</p>
-              <p className="mt-2">{disclaimer('description')}</p>
-              <Link
-                href={localizedPath('/disclaimer')}
-                className="mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-amber-600 px-3 py-1 text-xs font-medium text-amber-700 transition hover:bg-amber-600 hover:text-white"
-              >
-                {common('viewFullDisclaimer')}
-              </Link>
-            </div>
-
-            <div className="pt-2">
-              <Link
-                href={localizedPath('/')}
-                className="inline-flex items-center gap-2 rounded-full border border-gray-900 px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-gray-900 hover:text-white"
-              >
-                {common('backToHome')}
-              </Link>
-            </div>
+          <div className="pt-6 border-t border-gray-100 mt-8">
+            <Link
+              href={localizedPath('/')}
+              className="inline-flex items-center gap-2 rounded-full border border-gray-900 px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-gray-900 hover:text-white"
+            >
+              {common('backToHome')}
+            </Link>
           </div>
-        </div>
+        </article>
       </main>
+
       <Footer />
     </div>
   );

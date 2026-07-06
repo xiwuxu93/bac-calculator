@@ -21,7 +21,7 @@ export function resolveLocale(input?: string | null): Locale {
 }
 
 export function getLocalePrefix(locale: Locale) {
-  return locale === defaultLocale ? "" : `/${locale}`;
+  return `/${locale}`;
 }
 
 export function getLocalizedPath(locale: Locale, path: string) {

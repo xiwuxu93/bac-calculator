@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale = (locales.includes(params.locale as Locale) ? params.locale : defaultLocale) as Locale;
   const metadata = await getTranslations({ locale, namespace: 'metadata' });
   const disclaimer = await getTranslations({ locale, namespace: 'disclaimer' });
-  const localePrefix = locale === defaultLocale ? '' : `/${locale}`;
+  const localePrefix = `/${locale}`;
   const localizedUrl = `${SITE_URL}${localePrefix}/disclaimer`;
   const imageUrl = `${SITE_URL}/og-image.png`;
 
@@ -76,7 +76,7 @@ export default async function DisclaimerPage({ params }: PageProps) {
   const locale = (locales.includes(params.locale as Locale) ? params.locale : defaultLocale) as Locale;
   const disclaimer = await getTranslations({ locale, namespace: 'disclaimer' });
   const common = await getTranslations({ locale, namespace: 'common' });
-  const localePrefix = locale === defaultLocale ? '' : `/${locale}`;
+  const localePrefix = `/${locale}`;
   const localizedPath = (path: string) => {
     if (path === '/' || path === '') {
       return localePrefix || '/';
@@ -94,107 +94,76 @@ export default async function DisclaimerPage({ params }: PageProps) {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-50">
       <Header locale={locale} />
       <main className="flex-1 px-4 py-12">
-        <div className="mx-auto flex max-w-4xl flex-col gap-12">
-          <div className="space-y-4 text-center">
-            <h1 className="text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
-              {disclaimer('title')}
-            </h1>
-            <p className="text-base text-gray-600 md:text-lg">{disclaimer('description')}</p>
-            <p className="text-sm uppercase tracking-wide text-gray-500">
-              {disclaimer('lastUpdatedLabel')} {disclaimer('lastUpdatedValue')}
-            </p>
+        <article className="entry-content mx-auto max-w-4xl rounded-2xl bg-white p-6 shadow-sm border border-gray-100 md:p-12">
+          <h1>{disclaimer('title')}</h1>
+          <p className="text-center text-gray-600 !mb-2">{disclaimer('description')}</p>
+          <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold text-center !mb-8 border-b border-gray-100 pb-6">
+            {disclaimer('lastUpdatedLabel')} {disclaimer('lastUpdatedValue')}
+          </p>
+
+          <p className="text-lg text-gray-700 leading-relaxed">{disclaimer('intro')}</p>
+
+          <h2>{disclaimer('educationHeading')}</h2>
+          <p>{disclaimer('educationContent')}</p>
+
+          <h2>{disclaimer('noAdviceHeading')}</h2>
+          <p>{disclaimer('noAdviceContent')}</p>
+
+          <h2>{disclaimer('emergencyHeading')}</h2>
+          <p>{disclaimer('emergencyContent')}</p>
+
+          <h2>{disclaimer('audienceHeading')}</h2>
+          <ul>
+            <li>{disclaimer('audienceList1')}</li>
+            <li>{disclaimer('audienceList2')}</li>
+            <li>{disclaimer('audienceList3')}</li>
+          </ul>
+
+          <h2>{disclaimer('audienceExclusionHeading')}</h2>
+          <ul>
+            <li>{disclaimer('audienceExclusionList1')}</li>
+            <li>{disclaimer('audienceExclusionList2')}</li>
+            <li>{disclaimer('audienceExclusionList3')}</li>
+          </ul>
+
+          <h2>{disclaimer('clinicalJudgmentHeading')}</h2>
+          <p>{disclaimer('clinicalJudgmentContent')}</p>
+
+          <h2>{disclaimer('accuracyHeading')}</h2>
+          <p>{disclaimer('accuracyContent')}</p>
+
+          <h2>{disclaimer('liabilityHeading')}</h2>
+          <p>{disclaimer('liabilityContent')}</p>
+
+          <h2>{disclaimer('noRelationshipHeading')}</h2>
+          <p>{disclaimer('noRelationshipContent')}</p>
+
+          <h2>{disclaimer('thirdPartyHeading')}</h2>
+          <p>{disclaimer('thirdPartyContent')}</p>
+
+          <h2>{disclaimer('complianceHeading')}</h2>
+          <p>{disclaimer('complianceContent')}</p>
+
+          <h2>{disclaimer('updatesHeading')}</h2>
+          <p>{disclaimer('updatesContent')}</p>
+
+          <h2>{disclaimer('contactHeading')}</h2>
+          <p>{disclaimer('contactContent')}</p>
+
+          <div className="pt-6 border-t border-gray-100 mt-8">
+            <Link
+              href={localizedPath('/')}
+              className="inline-flex items-center gap-2 rounded-full border border-gray-900 px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-gray-900 hover:text-white"
+            >
+              {common('backToHome')}
+            </Link>
           </div>
-
-          <div className="space-y-8 rounded-lg bg-white p-6 shadow-lg md:p-8">
-            <p className="text-gray-700">{disclaimer('intro')}</p>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('educationHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('educationContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('noAdviceHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('noAdviceContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('emergencyHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('emergencyContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('audienceHeading')}</h2>
-              <ul className="list-disc space-y-2 pl-6 text-gray-700">
-                <li>{disclaimer('audienceList1')}</li>
-                <li>{disclaimer('audienceList2')}</li>
-                <li>{disclaimer('audienceList3')}</li>
-              </ul>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('audienceExclusionHeading')}</h2>
-              <ul className="list-disc space-y-2 pl-6 text-gray-700">
-                <li>{disclaimer('audienceExclusionList1')}</li>
-                <li>{disclaimer('audienceExclusionList2')}</li>
-                <li>{disclaimer('audienceExclusionList3')}</li>
-              </ul>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('clinicalJudgmentHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('clinicalJudgmentContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('accuracyHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('accuracyContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('liabilityHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('liabilityContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('noRelationshipHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('noRelationshipContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('thirdPartyHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('thirdPartyContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('complianceHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('complianceContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('updatesHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('updatesContent')}</p>
-            </section>
-
-            <section className="space-y-3">
-              <h2 className="text-xl font-semibold text-gray-900">{disclaimer('contactHeading')}</h2>
-              <p className="text-gray-700">{disclaimer('contactContent')}</p>
-            </section>
-
-            <div className="pt-2">
-              <Link
-                href={localizedPath('/')}
-                className="inline-flex items-center gap-2 rounded-full border border-gray-900 px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-gray-900 hover:text-white"
-              >
-                {common('backToHome')}
-              </Link>
-            </div>
-          </div>
-        </div>
+        </article>
       </main>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

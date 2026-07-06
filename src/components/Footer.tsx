@@ -4,7 +4,7 @@ import CurrentYear from '@/components/CurrentYear';
 import { defaultLocale } from '@/lib/i18n';
 
 const getLocalePrefix = (locale: string, fallbackLocale: string) =>
-  locale === fallbackLocale ? '' : `/${locale}`;
+  `/${locale}`;
 
 export default async function Footer() {
   const [tCommon, tFooter, locale] = await Promise.all([
