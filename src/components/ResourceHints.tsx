@@ -12,16 +12,10 @@ export default function ResourceHints() {
   return (
     <>
       {shouldPreconnectGtm ? (
-        <>
-          <link rel="preconnect" href={GA_HOST} crossOrigin="anonymous" />
-          <link rel="dns-prefetch" href={GA_HOST} />
-        </>
+        <link rel="dns-prefetch" href={GA_HOST} />
       ) : null}
       {isProd ? (
-        <>
-          <link rel="preconnect" href={GROW_ADS_HOST} crossOrigin="anonymous" />
-          <link rel="dns-prefetch" href={GROW_ADS_HOST} />
-        </>
+        <link rel="dns-prefetch" href={GROW_ADS_HOST} />
       ) : null}
     </>
   );
