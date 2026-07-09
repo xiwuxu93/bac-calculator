@@ -107,6 +107,7 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
 
           <h2>{privacy('thirdPartiesTitle')}</h2>
           <p>{privacy('thirdPartiesContent')}</p>
+          <div id="mediavine-privacy-policy" className="mt-4" />
 
           <h2>{privacy('changesTitle')}</h2>
           <p>{privacy('changesContent')}</p>

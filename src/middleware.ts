@@ -20,7 +20,7 @@ export default function middleware(request: NextRequest) {
   if (!hasLocale) {
     const url = request.nextUrl.clone();
     url.pathname = `/${defaultLocale}${pathname === '/' ? '' : pathname}`;
-    return NextResponse.redirect(url, 308);
+    return NextResponse.rewrite(url);
   }
 
   return intlMiddleware(request);
