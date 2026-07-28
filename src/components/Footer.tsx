@@ -187,6 +187,19 @@ export default async function Footer() {
                 style={{ height: '40px', width: 'auto' }}
               />
             </a>
+            <a
+              href="https://topaitoolsreview.com"
+              target="_blank"
+              rel="noopener"
+              style={{ cursor: 'pointer' }}
+              className="inline-block hover:opacity-90 transition-opacity"
+            >
+              <img
+                src="https://cdn.topaitoolsreview.com/defaults/featured-on_light.svg"
+                alt="Featured on TopAIToolsReview"
+                style={{ height: '40px', width: 'auto' }}
+              />
+            </a>
           </div>
           <p className="text-center text-sm text-gray-500">
             © <CurrentYear /> {tCommon('siteName')}. {tCommon('allRightsReserved')}
