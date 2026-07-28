@@ -138,7 +138,7 @@ const en = {
     docs: {
       introTitle: "What does BAC measure?",
       introContent:
-        "Blood alcohol concentration (BAC) is usually expressed as a percentage that represents grams of alcohol per 100 mL of blood. For example, a BAC of 0.08% means 0.08 grams of alcohol per 100 mL of blood.",
+        "Blood alcohol concentration (BAC) is usually expressed as a percentage that represents grams of alcohol per 100 mL of blood. For example, a BAC of 0.08% means 0.08 grams of alcohol per 100 mL of blood. In clinical or lab settings, blood alcohol might be reported in milligrams per deciliter instead. You can easily convert these numbers using our [mg/dL to BAC Converter](/en/mgdl-to-bac).",
       formulaTitle: "The basic BAC estimation formula",
       formulaContent:
         "Many online calculators use a Widmark-style formula. It estimates BAC by dividing the amount of pure alcohol consumed by an estimate of the water in your body, then subtracting an hourly elimination rate for the time since your first drink.",
@@ -323,6 +323,7 @@ const en = {
     relatedChart: "View BAC Chart by Weight",
     relatedAdvanced: "Use Advanced Calculator",
     relatedWomen: "BAC Calculator for Women",
+    relatedUnitConverter: "BAC Unit Conversion Calculator",
     faqTitle: "BAC Calculator FAQ",
     faqQ1: "How accurate is this BAC calculator?",
     faqA1:
@@ -452,7 +453,7 @@ const en = {
         "Promille (‰) is commonly used in many countries to express BAC. This page helps you translate between units.",
       docsTitle: "Understanding promille and BAC",
       docsContent:
-        "Promille (‰) literally means “per thousand.” A BAC of 0.5‰ is equivalent to 0.05% BAC. Some countries express legal driving limits in promille, while others use percent or mg/dL. The underlying concept is the same: an approximate measure of alcohol per volume of blood.",
+        "Promille (‰) literally means “per thousand.” A BAC of 0.5‰ is equivalent to 0.05% BAC. Some countries express legal driving limits in promille, while others use percent or mg/dL. The underlying concept is the same: an approximate measure of alcohol per volume of blood.\n\nLooking for other units? Try our [mg/dL to BAC Converter](/en/mgdl-to-bac) or use the general [BAC Unit Conversion Calculator](/en/bac-conversion-calculator) to view all equivalents at once.",
     },
     mgdlPage: {
       title: "mg/dL to BAC Converter – mg/dL to % and ‰",
@@ -462,7 +463,7 @@ const en = {
         "Laboratories sometimes report blood alcohol in milligrams per deciliter (mg/dL). This page helps map those numbers to everyday BAC units.",
       docsTitle: "Understanding mg/dL for BAC",
       docsContent:
-        "A deciliter is one-tenth of a liter. When a lab reports blood alcohol in mg/dL, it is describing how many milligrams of alcohol are present in each deciliter of blood. For everyday understanding and legal contexts, these values are often converted into % BAC or promille.",
+        "A deciliter is one-tenth of a liter. When a lab reports blood alcohol in mg/dL, it is describing how many milligrams of alcohol are present in each deciliter of blood. For everyday understanding and legal contexts, these values are often converted into % BAC or promille.\n\nNeed to convert other units? We also offer a [Promille to BAC Converter](/en/promille-to-bac) and a full [BAC Unit Conversion Calculator](/en/bac-conversion-calculator) for multi-unit comparisons.",
     },
     conversionPage: {
       title: "BAC Unit Conversion Calculator",
@@ -472,7 +473,7 @@ const en = {
         "Different countries, devices, and reports use different BAC units. This calculator helps you move between them.",
       docsTitle: "Why BAC units vary",
       docsContent:
-        "Historically, different regions and disciplines adopted different ways to express concentration: percentages, parts per thousand, and mass per volume. While the units vary, they all aim to describe the same physical idea: how much alcohol is in a given amount of blood.",
+        "Historically, different regions and disciplines adopted different ways to express concentration: percentages, parts per thousand, and mass per volume. While the units vary, they all aim to describe the same physical idea: how much alcohol is in a given amount of blood.\n\nFor dedicated calculations, you can also use our specific [mg/dL to BAC Converter](/en/mgdl-to-bac) or [Promille to BAC Converter](/en/promille-to-bac).",
     },
   },
   countryBac: {

@@ -178,6 +178,10 @@ ${home('safetyContent')}
       href: '/most-accurate-bac-calculator',
       label: home('relatedAccuracy'),
     },
+    {
+      href: '/bac-conversion-calculator',
+      label: home('relatedUnitConverter'),
+    },
   ];
 
   return (

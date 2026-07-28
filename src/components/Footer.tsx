@@ -97,6 +97,22 @@ export default async function Footer() {
               </li>
               <li>
                 <Link
+                  href={withPrefix('/mgdl-to-bac')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  mg/dL to BAC Converter
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={withPrefix('/promille-to-bac')}
+                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  Promille to BAC Converter
+                </Link>
+              </li>
+              <li>
+                <Link
                   href={withPrefix('/about')}
                   className="text-sm leading-6 text-gray-600 hover:text-gray-900"
                 >
@@ -145,7 +161,19 @@ export default async function Footer() {
             </ul>
           </div>
         </div>
-        <div className="pt-8 mt-12 border-t border-gray-200">
+        <div className="pt-8 mt-12 border-t border-gray-200 flex flex-col items-center justify-center gap-4">
+          <a
+            href="https://turbo0.com/item/bac-calculator"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            className="inline-block hover:opacity-90 transition-opacity"
+          >
+            <img
+              src="https://img.turbo0.com/badge-listed-light.svg"
+              alt="Listed on Turbo0"
+              style={{ height: '40px', width: 'auto' }}
+            />
+          </a>
           <p className="text-center text-sm text-gray-500">
             © <CurrentYear /> {tCommon('siteName')}. {tCommon('allRightsReserved')}
           </p>
