@@ -161,19 +161,33 @@ export default async function Footer() {
             </ul>
           </div>
         </div>
-        <div className="pt-8 mt-12 border-t border-gray-200 flex flex-col items-center justify-center gap-4">
-          <a
-            href="https://turbo0.com/item/bac-calculator"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block hover:opacity-90 transition-opacity"
-          >
-            <img
-              src="https://img.turbo0.com/badge-listed-light.svg"
-              alt="Listed on Turbo0"
-              style={{ height: '40px', width: 'auto' }}
-            />
-          </a>
+        <div className="pt-8 mt-12 border-t border-gray-200 flex flex-col items-center justify-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <a
+              href="https://turbo0.com/item/bac-calculator"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block hover:opacity-90 transition-opacity"
+            >
+              <img
+                src="https://img.turbo0.com/badge-listed-light.svg"
+                alt="Listed on Turbo0"
+                style={{ height: '40px', width: 'auto' }}
+              />
+            </a>
+            <a
+              href="https://www.tooluck.org/item/safebac-calculator"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block hover:opacity-90 transition-opacity"
+            >
+              <img
+                src="https://www.tooluck.org/badges/tooluck-badge-light.svg"
+                alt="Featured on Tooluck.org"
+                style={{ height: '40px', width: 'auto' }}
+              />
+            </a>
+          </div>
           <p className="text-center text-sm text-gray-500">
             © <CurrentYear /> {tCommon('siteName')}. {tCommon('allRightsReserved')}
           </p>
