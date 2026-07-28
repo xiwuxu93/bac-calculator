@@ -165,7 +165,7 @@ export default async function Footer() {
           <a
             href="https://turbo0.com/item/bac-calculator"
             target="_blank"
-            rel="nofollow noopener noreferrer"
+            rel="noopener noreferrer"
             className="inline-block hover:opacity-90 transition-opacity"
           >
             <img
