@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, unstable_setRequestLocale } from 'next-intl/server';
@@ -5,6 +6,12 @@ import { Locale, resolveLocale } from '@/lib/i18n';
 import ResourceHints from '@/components/ResourceHints';
 import ThirdPartyScripts from '@/components/ThirdPartyScripts';
 import '@/styles/globals.css';
+
+export const metadata: Metadata = {
+  other: {
+    'google-adsense-account': 'ca-pub-4855228928819714',
+  },
+};
 
 export const viewport = {
   width: 'device-width',

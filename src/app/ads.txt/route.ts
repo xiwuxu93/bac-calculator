@@ -14,7 +14,12 @@ export async function GET() {
       throw new Error(`Failed to fetch ads.txt, status: ${response.status}`);
     }
 
-    const data = await response.text();
+    let data = await response.text();
+
+    // Ensure publisher's own AdSense account is included in ads.txt
+    if (!data.includes('pub-4855228928819714')) {
+      data = `${data.trim()}\ngoogle.com, pub-4855228928819714, DIRECT, f08c47fec0942fa0\n`;
+    }
 
     return new NextResponse(data, {
       headers: {
@@ -31,6 +36,7 @@ managerdomain=journeymv.com
 contact=sales@journeymv.com
 ownerdomain=safebac.org
 journeymv.com, 7a58edc2-df76-4bb8-9b63-292011f23f69, DIRECT, 1363c924529b3998
+google.com, pub-4855228928819714, DIRECT, f08c47fec0942fa0
 google.com, pub-1601477034266482, DIRECT, f08c47fec0942fa0
 google.com, pub-7585907861569631, DIRECT, f08c47fec0942fa0
 google.com, pub-1601477034266482, RESELLER, f08c47fec0942fa0
